@@ -1,7 +1,8 @@
-var express = require('express');
-var routes = require('./App/Routes/web');
+const express = require('express');
+const routes = require('./App/Routes/web');
+const app = new express();
+const port = 3000;
 
-var app = new express();
 app.set('template engine', 'ejs');
 
 app.use('/assets', express.static('assets'));
@@ -31,4 +32,6 @@ routes.forEach(function(route) {
     });
 });
 
-app.listen(3000);
+app.listen(port);
+
+console.log("your application is accessible on http://localhost:" + port);
